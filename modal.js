@@ -18,7 +18,7 @@ const formData = document.querySelectorAll(".formData");
     const email = document.getElementById('email');
     const birthdate = document.getElementById('birthdate');
     const quantity = document.getElementById('quantity');
-    const citySelector = document.getElementsByName("location");
+    const locationSelect = document.getElementsByName("location");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
