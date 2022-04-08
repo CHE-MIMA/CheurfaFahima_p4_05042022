@@ -19,7 +19,7 @@ const closeModalElt = document.querySelectorAll("#close");
     const birthdate = document.getElementById('birthdate');
     const quantity = document.getElementById('quantity');
     const locationSelect = document.getElementsByName("location");
-    
+    const checkBox= document.getElementsByName("checkbox");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 

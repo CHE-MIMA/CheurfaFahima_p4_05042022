@@ -12,6 +12,7 @@
     />
   </head>
   <body>
+    <!--------------------navbar------------------->
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
@@ -29,6 +30,7 @@
     </div>
     </div>
   </div>
+ <!-------- text, bouton , photo----------------------->
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -51,7 +53,7 @@
           je m'inscris
         </button>
       </div>
-
+<!----------modal----------->
       <div class="bground">
         <div class="content">
           <span class="close" id="close"></span>
@@ -61,7 +63,7 @@
               action="index.html"
               method="get"
               onsubmit="return validate();"
-            >
+            ><!---------form-------->
               <div
                 class="formData">
                 <label>Prénom</label><br>
@@ -109,6 +111,7 @@
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+              <!------------localisation------------->
               <div
                 class="formData">
                 <input
@@ -178,7 +181,7 @@
                   Portland</label
                 >
               </div>
-
+             <!----------condition d'utulisation--> 
               <div
                 class="formData">
                 <input
@@ -199,6 +202,7 @@
                 </label>
                 <br>
               </div>
+              <!----bouton de validation----->
               <input
                 class="btn-submit"
                 type="submit"
