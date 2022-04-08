@@ -11,7 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-
+const closeModalElt = document.querySelectorAll("#close");
     //DOM elements (Variables)
     const prenom = document.getElementById('first');
     const nom = document.getElementById('last');
@@ -19,14 +19,20 @@ const formData = document.querySelectorAll(".formData");
     const birthdate = document.getElementById('birthdate');
     const quantity = document.getElementById('quantity');
     const locationSelect = document.getElementsByName("location");
-
+    
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+// close modal event
+closeModalElt.forEach((element)=> element.addEventListener("click",closeModal));
 
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
 }
 
-
+//
+function closeModal() {
+  modalbg.style.display = "none";
+}
 
