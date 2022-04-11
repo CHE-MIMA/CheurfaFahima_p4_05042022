@@ -53,11 +53,12 @@ function closeModal() {
 
 document.getElementById("btn-submit").addEventListener("click", function formValidat(event) {
 		event.preventDefault();
-    // validat prenom
+    // validation prenom
     let prenomValue = prenom.value; 
     let nomValue = nom.value; 
-    let regexemail = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/; 
-    let regexquantity = /^([0-9]{2})+$/;
+    // let regexemail = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/; 
+    let regexemail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    let regexquantity = /^[0-9]+$/;
 
     if (prenomValue.length < 2){ 
       errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
@@ -66,7 +67,7 @@ document.getElementById("btn-submit").addEventListener("click", function formVal
       errorprenom.innerHTML="";  
     }
     
-         //validat nom
+         //validation nom
          
          if (nomValue.length < 2){ 
            errornom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom."; 
@@ -74,15 +75,15 @@ document.getElementById("btn-submit").addEventListener("click", function formVal
          }else{
            errornom.innerHTML="";  
          }
-          // validt email
-if (!regexemail.test(email.Value)){
+          // validation email
+if (!regexemail.test(email.value) || email == ''){
   erroremail.innerHTML="veuillez entrer une adresse email valide";
 }
  else{
   erroremail.innerHTML="";  
 }
-    // validat barthdate
-    if (birthdate.value==null || birthdate.value==undefined){
+    // validation barthdate
+    if (birthdate.value==''){
 
       errorbirthdate.innerHTML="veuillez entrer une date de naissance";
     }
@@ -90,7 +91,7 @@ if (!regexemail.test(email.Value)){
   else{
     errorbirthdate.innerHTML="";  
   }
-  // validate quantity
+  // validation quantity
   if (!regexquantity.test(quantity.Value)){
     errorquantity.innerHTML="veuillez entrer un chiffre de 0 à 99 ";
   }
@@ -98,5 +99,24 @@ if (!regexemail.test(email.Value)){
   else{
     errorquantity.innerHTML=""; 
   }
+   // validation localiacation
+
+   for(i=0; i<locationSelect.length; i++) {
+     if (!locationSelect[i].checked) {
+          errorlocation.innerHTML = "Vous devez choisir une option.";
+        }
+        else {
+          errorlocation.innerHTML = "";
+        }
+    }
+  //  validation condition d'utilisation  
+  if (!checkBox1.checked){
+    errorcheckbox.innerHTML="Vous devez vérifiez les conditions d'utlisation.";
+  }
+  else
+  errorcheckbox.innerHTML=""; 
 })
-    
+
+    /* "Vous devez choisir une option."
+"Vous devez vérifier que vous acceptez les termes et conditions."
+"Vous devez entrer votre date de naissance."*/
