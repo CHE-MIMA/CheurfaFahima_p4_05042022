@@ -92,7 +92,7 @@ if (!regexemail.test(email.value) || email == ''){
     errorbirthdate.innerHTML="";  
   }
   // validation quantity
-  if (!regexquantity.test(quantity.Value)){
+  if (!/^([0-9]{1,2})+$/.test(quantity.value)){
     errorquantity.innerHTML="veuillez entrer un chiffre de 0 à 99 ";
   }
   
