@@ -47,52 +47,56 @@ function closeModal() {
 
 // validation input 
 
-function lastValidat() { ;
-if (prenom.Value.length > 2) return true;
-else return false;
-}
-
-function emailValidat() {
-  let regex = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/;
-  
-  return regex.test(email.Value);
-}
-function birthdateValidation() {
-	let regex = /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$/;
-	return regex.test(birthdate.value);
-}
-
-function quantityValidat() {
-  let regex = /^[0-9]+$/;
-  return regex.test(quantity.Value);
-  
-}
 
 
 
 
-document.getElementById("btn-submit").addEventListener("click", function formValidation(event) {
+document.getElementById("btn-submit").addEventListener("click", function formValidat(event) {
 		event.preventDefault();
     // validat prenom
-        let prenomValue = prenom.value; 
-             
-        if (prenomValue.length < 2){ 
-          errorprenom.innerHTML="Veuillez entrez votre prenom dans ce champ"; 
-            return false; 
-        }else{
-          prenom.innerHTML="";  
-        }
-        error.focus();
-          
-         //validat nom
-         let nomValue = nom.value;
-         if (nomValue.length < 2){ 
-           errornom.innerHTML="Veuillez entrez votre nom dans ce champ"; 
-             return false; 
-         }else{
-           nom.innerHTML="";  
-         }
-           
+    let prenomValue = prenom.value; 
+    let nomValue = nom.value; 
+    let regexemail = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/; 
+    let regexquantity = /^([0-9]{2})+$/;
 
-    });
+    if (prenomValue.length < 2){ 
+      errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+        // return false; 
+    }else{
+      errorprenom.innerHTML="";  
+    }
+    
+         //validat nom
+         
+         if (nomValue.length < 2){ 
+           errornom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom."; 
+            //  return false; 
+         }else{
+           errornom.innerHTML="";  
+         }
+          // validt email
+if (!regexemail.test(email.Value)){
+  erroremail.innerHTML="veuillez entrer une adresse email valide";
+}
+ else{
+  erroremail.innerHTML="";  
+}
+    // validat barthdate
+    if (birthdate.value==null || birthdate.value==undefined){
+
+      errorbirthdate.innerHTML="veuillez entrer une date de naissance";
+    }
+  
+  else{
+    errorbirthdate.innerHTML="";  
+  }
+  // validate quantity
+  if (!regexquantity.test(quantity.Value)){
+    errorquantity.innerHTML="veuillez entrer un chiffre de 0 à 99 ";
+  }
+  
+  else{
+    errorquantity.innerHTML=""; 
+  }
+})
     
