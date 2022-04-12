@@ -58,7 +58,7 @@ document.getElementById("btn-submit").addEventListener("click", function formVal
     let nomValue = nom.value; 
     // let regexemail = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/; 
     let regexemail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    let regexquantity = /^[0-9]+$/;
+    let regexquantity = /^([0-9]{1,2})$/;
 
     if (prenomValue.length < 2){ 
       errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
@@ -76,23 +76,22 @@ document.getElementById("btn-submit").addEventListener("click", function formVal
            errornom.innerHTML="";  
          }
           // validation email
-if (!regexemail.test(email.value) || email == ''){
+if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value) || email == ''){
   erroremail.innerHTML="veuillez entrer une adresse email valide";
 }
  else{
   erroremail.innerHTML="";  
 }
     // validation barthdate
-    if (birthdate.value==''){
-
-      errorbirthdate.innerHTML="veuillez entrer une date de naissance";
-    }
-  
+    
+     if (!(birthdate.value)){ 
+     errorbirthdate.innerHTML="veuillez entrer une date de naissance";   
+  }
   else{
-    errorbirthdate.innerHTML="";  
+    errorbirthdate.innerHTML="";
   }
   // validation quantity
-  if (!/^([0-9]{1,2})+$/.test(quantity.value)){
+  if (!/^([0-9]{1,2})$/.test(quantity.value)){
     errorquantity.innerHTML="veuillez entrer un chiffre de 0 à 99 ";
   }
   
