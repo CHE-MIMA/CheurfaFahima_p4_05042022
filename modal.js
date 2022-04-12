@@ -56,10 +56,6 @@ document.getElementById("btn-submit").addEventListener("click", function formVal
     // validation prenom
     let prenomValue = prenom.value; 
     let nomValue = nom.value; 
-    // let regexemail = /^([a-z0-9_\.-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/; 
-    let regexemail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    let regexquantity = /^([0-9]{1,2})$/;
-
     if (prenomValue.length < 2){ 
       errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
         // return false; 
@@ -76,7 +72,7 @@ document.getElementById("btn-submit").addEventListener("click", function formVal
            errornom.innerHTML="";  
          }
           // validation email
-if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value) || email == ''){
+if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value)){
   erroremail.innerHTML="veuillez entrer une adresse email valide";
 }
  else{
@@ -98,24 +94,46 @@ if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value) || email == ''){
   else{
     errorquantity.innerHTML=""; 
   }
-   // validation localiacation
+   // validation localiasation
 
-   for(i=0; i<locationSelect.length; i++) {
-     if (!locationSelect[i].checked) {
-          errorlocation.innerHTML = "Vous devez choisir une option.";
-        }
-        else {
-          errorlocation.innerHTML = "";
-        }
-    }
   //  validation condition d'utilisation  
   if (!checkBox1.checked){
     errorcheckbox.innerHTML="Vous devez vérifiez les conditions d'utlisation.";
   }
   else
   errorcheckbox.innerHTML=""; 
+        //  launch succesModal
+  const succesModal = document.querySelector(".confirmation-bg");
+       modalbg.style.display = "none";
+       succesModal.style.display = "block"; 
+
+      //Close succesModal
+       document.querySelectorAll('.close-succes').forEach(btn =>{
+       btn.addEventListener('click', btn => {
+       if (succesModal.style.display === "block"){
+            succesModal.style.display = 'none';
+       }
+      })
+      })   
 })
 
+
+// 
+//   //Reset the form  
+//   modalBtn.reset();
+//   }
+//   return
+
+
+/*for(let i=0; i<locationSelect.length; i++){ 
+  if( locationSelect[i].checked ) {
+      errorlocation.innerHTML ="";
+  } 
+}
+else {
+errorlocation="vous devez choisir une option.";
+}*/
+
     /* "Vous devez choisir une option."
-"Vous devez vérifier que vous acceptez les termes et conditions."
+
 "Vous devez entrer votre date de naissance."*/
