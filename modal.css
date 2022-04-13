@@ -508,7 +508,7 @@ footer {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 70px;
+  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -605,7 +605,7 @@ footer {
   
   .confirmation-body{
   
-  height: 550px;
+  height: 530px;
   width: 400px;
   
   }
