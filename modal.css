@@ -487,11 +487,11 @@ footer {
 
 .confirmation-bg{
   position: fixed;
-  top: 0;
+  top: 0px;
   left: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(91, 83, 133, 0.753);
+  height: 1400px;
+  width: 1600px;
+  background-color: rgba(158, 145, 223, 0.753);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -501,25 +501,25 @@ footer {
   
   .confirmation-body{
   background-color: rgb(24, 23, 23);
-  height: 60vh;
-  width: 35vw;
+  height: 500px;
+  width: 750px;
   position: fixed;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5rem;
+  margin-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.7rem;
+  border-radius: 5px;
   }
   
   .btn-x{
     position: absolute;
     right: 15px;
     top: 10px;
-    font-size: 1.3rem;
+    font-size: 30px;
     border: #fff;
     background-color: rgb(29, 28, 28);
     justify-content: center;
@@ -529,24 +529,25 @@ footer {
   }
   
   .btn-x :hover{
-    color: #afa6a6;
+   background-color: #2b97fd;
   }
   
   .btn{
     position: absolute;
-    bottom: 1rem;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    padding: 0.5rem 2rem;
-    border-radius: 0.3rem;
-    background-color: rgb(224, 20, 20);
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    bottom: 50px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background-color:RED;
     border: 0;
     color: #fff;
+    
   }
   
-  .btn-close-Succes:hover{
-    background-color: rgb(216, 49, 49);
+  .btn:hover{
+    background-color: #3876ac;
   }
   
   .confirmation-body p{
@@ -594,6 +595,19 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+  
+  .confirmation-bg{
+   
+    height: 1400px;
+    width: 1600px;
+    }
+  
+  .confirmation-body{
+  
+  height: 550px;
+  width: 400px;
+  
   }
 }
 
