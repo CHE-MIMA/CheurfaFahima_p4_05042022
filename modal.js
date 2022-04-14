@@ -45,84 +45,87 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// validation input 
-
-
-
-
-
+// validation input form
 document.getElementById("btn-submit").addEventListener("click", function formValidat(event) {
 		event.preventDefault();
-    // validation prenom
     let prenomValue = prenom.value; 
     let nomValue = nom.value; 
+    // validat prenom
     if (prenomValue.length < 2){ 
-      errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-        // return false; 
-    }else{
-      errorprenom.innerHTML="";  
+      errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom."; 
+      return false;
+   }else{
+     errorprenom.innerHTML="";  
+   }
+    //validation nom
+    if (nomValue.length < 2){ 
+      errornom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+      return false; 
+   }else{
+     errornom.innerHTML="";  
+   }
+    // validation email
+   if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value)){
+   erroremail.innerHTML="veuillez entrer une adresse email valide";
+   return false;
     }
-    
-         //validation nom
-         
-         if (nomValue.length < 2){ 
-           errornom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom."; 
-            //  return false; 
-         }else{
-           errornom.innerHTML="";  
-         }
-          // validation email
-if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value)){
-  erroremail.innerHTML="veuillez entrer une adresse email valide";
-}
- else{
-  erroremail.innerHTML="";  
-}
-    // validation barthdate
-    
-     if (!(birthdate.value)){ 
-     errorbirthdate.innerHTML="veuillez entrer une date de naissance";   
-  }
-  else{
-    errorbirthdate.innerHTML="";
-  }
-  // validation quantity
-  if (!/^([0-9]{1,2})$/.test(quantity.value)){
-    errorquantity.innerHTML="veuillez entrer un chiffre de 0 à 99 ";
-  }
-  
-  else{
-    errorquantity.innerHTML=""; 
-  }
+   else{
+    erroremail.innerHTML="";  
+   }
+   // validation barthdate
+   
+    if (!(birthdate.value)){ 
+    errorbirthdate.innerHTML="veuillez entrer une date de naissance"; 
+    return false;  
+   }
+    else{
+   errorbirthdate.innerHTML="";
+    }
+   // validation quantity
+   if (!/^([0-9]{1,2})$/.test(quantity.value)){
+   errorquantity.innerHTML="veuillez entrer un chiffre de 0 à 99 ";
+   return false;
+   }
+   else{
+   errorquantity.innerHTML=""; 
+   }
    // validation localiasation
 
-  //  validation condition d'utilisation  
-  if (!checkBox1.checked){
-    errorcheckbox.innerHTML="Vous devez vérifiez les conditions d'utlisation.";
-  }
-  else
-  errorcheckbox.innerHTML=""; 
-        //  launch succesModal
-  const succesModal = document.querySelector(".confirmation-bg");
-       modalbg.style.display = "none";
+    //  validation condition d'utilisation  
+   if (!checkBox1.checked){
+   errorcheckbox.innerHTML="Vous devez vérifiez les conditions d'utlisation.";
+   return false;
+   }
+   else
+   errorcheckbox.innerHTML=""; 
+    //  launch succesModal
+       const succesModal = document.querySelector(".confirmation-bg");
+        modalbg.style.display = "none";
        succesModal.style.display = "block"; 
+       
 
-      //Close succesModal
+    //Close succesModal
        document.querySelectorAll('.close-succes').forEach(btn =>{
-       btn.addEventListener('click', btn => {
-       if (succesModal.style.display === "block"){
+       btn.addEventListener('click', (e)=> {
+       if (succesModal.style.display = "block"){
             succesModal.style.display = 'none';
        }
       })
-      })   
+      }) 
+            
 })
 
+    
+    
+    
 
-// 
-//   //Reset the form  
-//   modalBtn.reset();
-//   }
-//   return
+
+   //Reset the form
+   
+  //  if (formValidat){
+  //   modalBtn.reset();
+  //  }
+  
 
 
 /*for(let i=0; i<locationSelect.length; i++){ 

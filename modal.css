@@ -484,7 +484,11 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-
+#errorcheckbox1
+{
+  display: flex;
+  text-align: right;
+}
 .confirmation-bg{
   position: fixed;
   top: 0px;
@@ -504,15 +508,15 @@ footer {
   height: 500px;
   width: 750px;
   position: fixed;
-  left: 0;
+  left: 0 ;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
+  margin: auto;
+  top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  text-align: center;
+  border-radius: 10px;
   }
   
   .btn-x{
@@ -604,7 +608,7 @@ footer {
     }
   
   .confirmation-body{
-  
+  top: 70px;
   height: 530px;
   width: 400px;
   
