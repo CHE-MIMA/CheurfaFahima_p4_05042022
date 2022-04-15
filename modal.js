@@ -94,6 +94,19 @@ document.getElementById("btn-submit").addEventListener("click", function validat
    errorquantity.innerHTML="";  
    }
    // validation localisation
+   let option = false;
+ for(i=0; i<locationSelect.length; i++) {
+   if (locationSelect[i].checked) {
+      option = true;
+   }
+ }
+   if (option == false) {
+        errorlocation.innerHTML = "Vous devez choisir une option.";
+        return false;
+    }
+    else{
+      errorlocation.innerHTML = "";
+    }
 
     //  validation condition d'utilisation  
    if (!checkBox1.checked){
