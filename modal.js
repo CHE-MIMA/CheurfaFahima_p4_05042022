@@ -12,6 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModalElt = document.querySelectorAll("#close");
+
     
 
 //DOM elements (Variables)
@@ -46,23 +47,25 @@ function closeModal() {
 }
 
 // validation input form
-document.getElementById("btn-submit").addEventListener("click", function formValidat(event) {
+document.getElementById("btn-submit").addEventListener("click", function validateForm(event) {
 		event.preventDefault();
     let prenomValue = prenom.value; 
     let nomValue = nom.value; 
     // validat prenom
     if (prenomValue.length < 2){ 
-      errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom."; 
+      errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
       return false;
    }else{
-     errorprenom.innerHTML="";  
-   }
+    errorprenom.innerHTML=""; 
+     
+  }
     //validation nom
     if (nomValue.length < 2){ 
       errornom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-      return false; 
+      return false;
    }else{
-     errornom.innerHTML="";  
+     errornom.innerHTML=""; 
+       
    }
     // validation email
    if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value)){
@@ -70,16 +73,17 @@ document.getElementById("btn-submit").addEventListener("click", function formVal
    return false;
     }
    else{
-    erroremail.innerHTML="";  
+    erroremail.innerHTML=""; 
+     
    }
    // validation barthdate
    
     if (!(birthdate.value)){ 
     errorbirthdate.innerHTML="veuillez entrer une date de naissance"; 
-    return false;  
+    return false;
    }
     else{
-   errorbirthdate.innerHTML="";
+   errorbirthdate.innerHTML=""; 
     }
    // validation quantity
    if (!/^([0-9]{1,2})$/.test(quantity.value)){
@@ -87,33 +91,45 @@ document.getElementById("btn-submit").addEventListener("click", function formVal
    return false;
    }
    else{
-   errorquantity.innerHTML=""; 
+   errorquantity.innerHTML="";  
    }
-   // validation localiasation
+   // validation localisation
 
     //  validation condition d'utilisation  
    if (!checkBox1.checked){
    errorcheckbox.innerHTML="Vous devez vérifiez les conditions d'utlisation.";
    return false;
    }
-   else
-   errorcheckbox.innerHTML=""; 
-    //  launch succesModal
-       const succesModal = document.querySelector(".confirmation-bg");
-        modalbg.style.display = "none";
-       succesModal.style.display = "block"; 
-       
+   else{
+   errorcheckbox.innerHTML="";
+   }
+   //  reset form
+   document.getElementById('form').reset();
+   
+    
+   //  launch succesModal
+   const succesModal = document.querySelector(".confirmation-bg");
+   modalbg.style.display = "none";
+  succesModal.style.display = "block"; 
+  
 
-    //Close succesModal
-       document.querySelectorAll('.close-succes').forEach(btn =>{
-       btn.addEventListener('click', (e)=> {
-       if (succesModal.style.display = "block"){
-            succesModal.style.display = 'none';
-       }
-      })
-      }) 
-            
-})
+//Close succesModal
+  document.querySelectorAll('.close-succes').forEach(btn =>{
+  btn.addEventListener('click', (e)=> {
+  if (succesModal.style.display = "block"){
+       succesModal.style.display = 'none';
+  }
+  })
+  })
+  //  reset form
+  document.getElementById('form').reset();
+  })
+      
+  
+   
+    
+   
+
 
     
     
