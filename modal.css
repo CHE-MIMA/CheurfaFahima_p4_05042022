@@ -505,8 +505,8 @@ footer {
   
   .confirmation-body{
   background-color: rgb(24, 23, 23);
-  height: 500px;
-  width: 750px;
+  height: 80%;
+  width: 70%;
   position: fixed;
   left: 0 ;
   right: 0;
@@ -555,8 +555,10 @@ footer {
   }
   
   .confirmation-body p{
+    font-size: 35px;
     position: absolute;
-    top: 40%;
+    font-weight: 200;
+    top: 45%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -564,6 +566,7 @@ footer {
     color: #fff;
   }
 @media screen and (max-width: 800px) {
+  
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -580,8 +583,9 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2.8rem;
     white-space: normal;
+    font-weight: 600;
   }
   .hero-text {
     width: unset;
@@ -609,8 +613,8 @@ footer {
   
   .confirmation-body{
   top: 70px;
-  height: 530px;
-  width: 400px;
+  height: 95%;
+  width: 100%;
   
   }
 }
