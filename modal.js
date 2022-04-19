@@ -13,28 +13,28 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModalElt = document.querySelectorAll("#close");
 
-    
+
 
 //DOM elements (Variables)
-    const prenom = document.getElementById('first');
-    const errorprenom = document.getElementById('errorprenom')
-    const nom = document.getElementById('last');
-    const errornom = document.getElementById('errornom')
-    const email = document.getElementById('email');
-    const erroremail = document.getElementById('erroremail')
-    const birthdate = document.getElementById('birthdate');
-    const errorbirthdate = document.getElementById('errorbirthdate')
-    const quantity = document.getElementById('quantity');
-    const errorquantity = document.getElementById('errorquantity')
-    const locationSelect = document.getElementsByName("location");
-    const errorlocation = document.getElementById('errorlocation')
-    const checkBox1= document.getElementById("checkbox1");
-    const errorcheckbox = document.getElementById('errorcheckbox1')
+const prenom = document.getElementById('first');
+const errorprenom = document.getElementById('errorprenom')
+const nom = document.getElementById('last');
+const errornom = document.getElementById('errornom')
+const email = document.getElementById('email');
+const erroremail = document.getElementById('erroremail')
+const birthdate = document.getElementById('birthdate');
+const errorbirthdate = document.getElementById('errorbirthdate')
+const quantity = document.getElementById('quantity');
+const errorquantity = document.getElementById('errorquantity')
+const locationSelect = document.getElementsByName("location");
+const errorlocation = document.getElementById('errorlocation')
+const checkBox1 = document.getElementById("checkbox1");
+const errorcheckbox = document.getElementById('errorcheckbox1')
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // close modal event
-closeModalElt.forEach((element)=> element.addEventListener("click",closeModal));
+closeModalElt.forEach((element) => element.addEventListener("click", closeModal));
 
 // launch modal form
 function launchModal() {
@@ -48,124 +48,113 @@ function closeModal() {
 
 // validation input form
 document.getElementById("btn-submit").addEventListener("click", function validateForm(event) {
-		event.preventDefault();
-    let prenomValue = prenom.value; 
-    let nomValue = nom.value; 
-    // validat prenom
-    if (prenomValue.length < 2){ 
-      errorprenom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-      return false;
-   }else{
-    errorprenom.innerHTML=""; 
-     
-  }
-    //validation nom
-    if (nomValue.length < 2){ 
-      errornom.innerHTML= "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-      return false;
-   }else{
-     errornom.innerHTML=""; 
-       
-   }
-    // validation email
-   if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value)){
-   erroremail.innerHTML="veuillez entrer une adresse email valide";
-   return false;
-    }
-   else{
-    erroremail.innerHTML=""; 
-     
-   }
-   // validation barthdate
-   
-    if (!(birthdate.value)){ 
-    errorbirthdate.innerHTML="veuillez entrer une date de naissance"; 
-    return false;
-   }
-    else{
-   errorbirthdate.innerHTML=""; 
-    }
-   // validation quantity
-   if (!/^([0-9]{1,2})$/.test(quantity.value)){
-   errorquantity.innerHTML="veuillez entrer un chiffre de 0 à 99 ";
-   return false;
-   }
-   else{
-   errorquantity.innerHTML="";  
-   }
-   // validation localisation
-   let option = false;
- for(i=0; i<locationSelect.length; i++) {
-   if (locationSelect[i].checked) {
-      option = true;
-   }
- }
-   if (option == false) {
-        errorlocation.innerHTML = "Vous devez choisir une option.";
-        return false;
-    }
-    else{
-      errorlocation.innerHTML = "";
-    }
+  event.preventDefault();
+  let champErreur = 0;
 
-    //  validation condition d'utilisation  
-   if (!checkBox1.checked){
-   errorcheckbox.innerHTML="Vous devez vérifiez les conditions d'utlisation.";
-   return false;
-   }
-   else{
-   errorcheckbox.innerHTML="";
-   }
-   //  reset form
-   document.getElementById('form').reset();
-   
-    
-   //  launch succesModal
-   const succesModal = document.querySelector(".confirmation-bg");
-   modalbg.style.display = "none";
-  succesModal.style.display = "block"; 
-  
+  let prenomValue = prenom.value;
+  let pattern = /^[a-zA-Z ]+$/i;
+  let nomValue = nom.value;
+  // validat prenom
+  if (prenomValue.length < 2 || !pattern.test(prenomValue)) {
+    errorprenom.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prenom.";
+    champErreur++;
 
-//Close succesModal
-  document.querySelectorAll('.close-succes').forEach(btn =>{
-  btn.addEventListener('click', (e)=> {
-  if (succesModal.style.display = "block"){
-       succesModal.style.display = 'none';
+  } else {
+    errorprenom.innerHTML = "";
   }
+  //validation nom
+
+  if (nomValue.length <2 ||!pattern.test(Value)){
+  errornom.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+  champErreur++;
+}
+else {
+  errornom.innerHTML = "";
+}
+// validation email
+
+if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value)) {
+  erroremail.innerHTML = "Veuillez entrer une adresse mail valide";
+  champErreur++;
+}
+else {
+  erroremail.innerHTML = "";
+}
+
+// //  // validation barthdate
+
+if (!(birthdate.value)) {
+  errorbirthdate.innerHTML = "veuillez entrer une date de naissance";
+  champErreur++;
+}
+else {
+  errorbirthdate.innerHTML = "";
+}
+//  // validation quantity
+if (!/^([0-9]{1,2})$/.test(quantity.value)) {
+  errorquantity.innerHTML = "veuillez entrer un chiffre de 0 à 99 ";
+  champErreur++;
+}
+else {
+  errorquantity.innerHTML = "";
+}
+//  // validation localisation
+let option = false;
+for (i = 0; i < locationSelect.length; i++) {
+  if (locationSelect[i].checked) {
+    option = true;
+  }
+}
+if (option == false) {
+  errorlocation.innerHTML = "Vous devez choisir une option.";
+  champErreur++;
+}
+else {
+  errorlocation.innerHTML = "";
+}
+
+//   //  validation condition d'utilisation  
+if (!checkBox1.checked) {
+  errorcheckbox.innerHTML = "Vous devez vérifiez les conditions d'utilisation.";
+  champErreur++;
+}
+else {
+  errorcheckbox.innerHTML = "";
+}
+
+if (champErreur == 0) {
+  succes();
+}
+
+
   })
+
+
+
+function succes() {
+  //  launch succesModal
+  const modalbg = document.querySelector(".bground");
+  const succesModal = document.querySelector(".confirmation-bg");
+  modalbg.style.display = "none";
+  succesModal.style.display = "block";
+
+
+  //Close succesModal
+  document.querySelectorAll('.close-succes').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      if (succesModal.style.display = "block") {
+        succesModal.style.display = 'none';
+      }
+    })
   })
   //  reset form
   document.getElementById('form').reset();
-  })
-      
-  
-   
-    
-   
-
-
-    
-    
-    
-
-
-   //Reset the form
-   
-  //  if (formValidat){
-  //   modalBtn.reset();
-  //  }
-  
-
-
-/*for(let i=0; i<locationSelect.length; i++){ 
-  if( locationSelect[i].checked ) {
-      errorlocation.innerHTML ="";
-  } 
 }
-else {
-errorlocation="vous devez choisir une option.";
-}*/
 
-    /* "Vous devez choisir une option."
 
-"Vous devez entrer votre date de naissance."*/
+
+
+
+
+
+    //  let pattern = /^[a-zA-Z ]+$/i;
