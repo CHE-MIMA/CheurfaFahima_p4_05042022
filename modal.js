@@ -64,7 +64,7 @@ document.getElementById("btn-submit").addEventListener("click", function validat
   }
   //validation nom
 
-  if (nomValue.length <2 ||!pattern.test(Value)){
+  if (nomValue.length <2 ||!pattern.test(nomValue)){
   errornom.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
   champErreur++;
 }
