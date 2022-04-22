@@ -12,6 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModalElt = document.querySelectorAll("#close");
+const response = document.querySelector(".text-control")
 
 
 
@@ -57,46 +58,57 @@ document.getElementById("btn-submit").addEventListener("click", function validat
   // validat prenom
   if (prenomValue.length < 2 || !pattern.test(prenomValue)) {
     errorprenom.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prenom.";
+    prenom.style.border = "2px solid red";
     champErreur++;
+
 
   } else {
     errorprenom.innerHTML = "";
+    prenom.style.border = "0px";
   }
   //validation nom
 
   if (nomValue.length <2 ||!pattern.test(nomValue)){
   errornom.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+  nom.style.border = "2px solid red";
   champErreur++;
 }
 else {
   errornom.innerHTML = "";
+  nom.style.border = "0px";
 }
 // validation email
 
 if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email.value)) {
   erroremail.innerHTML = "Veuillez entrer une adresse mail valide";
+  email.style.border = "2px solid red";
   champErreur++;
 }
 else {
   erroremail.innerHTML = "";
+  email.style.border = "0px";
 }
 
 // //  // validation barthdate
 
 if (!(birthdate.value)) {
   errorbirthdate.innerHTML = "veuillez entrer une date de naissance";
+  birthdate.style.border = "2px solid red";
   champErreur++;
 }
 else {
   errorbirthdate.innerHTML = "";
+  birthdate.style.border = "0px";
 }
 //  // validation quantity
 if (!/^([0-9]{1,2})$/.test(quantity.value)) {
   errorquantity.innerHTML = "veuillez entrer un chiffre de 0 à 99 ";
+  quantity.style.border = "2px solid red";
   champErreur++;
 }
 else {
   errorquantity.innerHTML = "";
+  quantity.style.border = "0px";
 }
 //  // validation localisation
 let option = false;
@@ -111,6 +123,7 @@ if (option == false) {
 }
 else {
   errorlocation.innerHTML = "";
+
 }
 
 //   //  validation condition d'utilisation  
@@ -120,6 +133,7 @@ if (!checkBox1.checked) {
 }
 else {
   errorcheckbox.innerHTML = "";
+  
 }
 
 if (champErreur == 0) {

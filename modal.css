@@ -197,7 +197,7 @@ label {
 }
 input {
   padding: 8px;
-  border: 0.8px solid #ccc;
+  border: 2px solid rgb(241, 239, 239);
   outline: none;
 }
 .text-control {
@@ -235,6 +235,7 @@ input {
 .error{
   font-size: 0.6em;
     color: red;
+    
 }
 
 
