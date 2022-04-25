@@ -139,11 +139,7 @@ else {
 if (champErreur == 0) {
   succes();
 }
-
-
   })
-
-
 
 function succes() {
   //  launch succesModal
